@@ -26,7 +26,7 @@ public class Main {
         b.Left = d;
 
        
-       TreeTraveler(a);
+       InOrderTreeTraveler(a);
 
 
 
@@ -42,30 +42,40 @@ public class Main {
         */
        
     }
+    static void PreOrderTreeTraveler(Node root){
+       Stack<Node> stack = new Stack<Node>();
+         Node curr = root;
+
+         while(!stack.IsEmpty() || curr != null){
+              
+         }
 
 
-    static void TreeTraveler(Node root){
-             Stack<Node> stack = new Stack<Node>();
 
+    }
+
+
+    static void InOrderTreeTraveler(Node root){
+           Stack<Node> stack = new Stack<Node>();
              Node current = root;
-             
+              
+           while(!stack.isEmpty() || current != null){
 
-            
-                 while(!stack.isEmpty()|| current != null){
-                           
-                           while(current != null){
-                                stack.push(current);
-                                current = current.Left;
+                  while(current != null){
+                    stack.push(current);
+                    current = current.Left;
+                   
+                    
+                  }
+                 current =  stack.pop();
+                 System.out.println(current.Name + " =visited");
 
-                           }
+                 current = current.Right;
+                
 
-                           current = stack.pop();
-                           System.out.println(current.Name + " = visited");
-
-                           current = current.Right;
-
-
-                 }
+           }
+                          
+                 
 
 
 
