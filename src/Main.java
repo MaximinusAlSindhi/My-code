@@ -26,7 +26,7 @@ public class Main {
         b.Left = d;
 
        
-       InOrderTreeTraveler(a);
+       RecursivePostOrderTreeTraveler(a);
 
 
 
@@ -35,20 +35,79 @@ public class Main {
                 /    \
                 b      c
                /\      /\
-              d  e     f g
+              d  e    f  g
                           \ 
                             h
 
         */
        
     }
+static void RecursivePostOrderTreeTraveler(Node root){
+             Node curr = root;
+
+             if(curr.Left != null) RecursivePostOrderTreeTraveler(curr.Left);
+               
+               if(curr.Right != null) RecursivePostOrderTreeTraveler(curr.Right);
+                 System.out.println(curr.Name);
+
+
+
+
+}
+
+
+
+       static void PostOrderTreeTraveler(Node root){
+               
+                Stack<Node> stack = new  Stack<Node>();
+              Stack<Node> stack1 = new Stack<Node>();
+               
+               
+               
+               Node curr = root;
+
+               stack.push(curr);
+
+
+             
+
+              while(!stack.isEmpty()){
+                Node temp = stack.pop();
+                stack1.push(temp);
+
+                if ( temp.Right != null) stack.push(temp.Right);
+                if ( temp.Left != null) stack.push(temp.Left);
+                  
+
+              }
+
+              while(!stack1.isEmpty()){
+                Node Output = stack1.pop();
+                System.out.println(Output.Name + " visited");
+              }
+
+
+       }
+
+
+
     static void PreOrderTreeTraveler(Node root){
        Stack<Node> stack = new Stack<Node>();
          Node curr = root;
-
-         while(!stack.IsEmpty() || curr != null){
+         curr = stack.push(curr);
+         
+            while(!stack.isEmpty()){
+              Node temp = stack.pop();
               
-         }
+              System.out.println(temp.Name);
+              if(temp.Right != null) stack.push(temp.Right);
+    
+               if(temp.Left != null) stack.push(temp.Left);
+                 
+            }
+              
+         
+
 
 
 
@@ -91,7 +150,7 @@ public class Main {
          
 
       if(root == null) return false;
-      if(root.Name == Name) return true;
+      if(root.Name.equals(Name)) return true;
       
 
       return NodeFinder(root.Left, Name) || NodeFinder(root.Right, Name);
