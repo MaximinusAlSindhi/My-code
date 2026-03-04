@@ -42,6 +42,22 @@ public class Main {
         */
        
     }
+    static boolean NodeFinder(Node root, Node node){
+                
+                 Node curr = root;
+                 
+                 
+                 
+                 while(curr != null){
+                      
+                    if(node.Name.equals(curr.Name))  return true;
+                    else if( node.data > curr.data)  curr = curr.Right;
+                    else {curr = curr.Left;}
+                 }
+               return false;
+
+
+      }
     static void pratice(Node root){
              Stack<Node> stack = new Stack<Node>();
              Node curr = root;
