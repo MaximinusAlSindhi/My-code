@@ -2,11 +2,11 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.LinkedList;
 
-
-
 public class Main {
- public static void main(String args[]){
- Node a = new Node(10, "A");
+    public static void main(String[] args) {
+
+         
+          Node a = new Node(10, "A");
           Node b = new Node(8, "B");
           Node c = new Node(14, "C");
           Node d = new Node(6, "D");
@@ -25,10 +25,8 @@ public class Main {
         b.Right = e;
         b.Left = d;
 
-       System.out.print(NodeFinder(a, e));
-
-
        
+       pratice(a);
 
 
 
@@ -42,30 +40,8 @@ public class Main {
                             h
 
         */
-     
-
-
-
-
-          }
-
- static boolean NodeFinder(Node root, Node node){
-                
-                 Node curr = root;
-                 
-                 
-                 
-                 while(curr != null){
-                      
-                    if(node.Name.equals(curr.Name))  return true;
-                    else if( node.data > curr.data)  curr = curr.Right;
-                    else {curr = curr.Left;}
-                 }
-               return false;
-
-
-      }
-
+       
+    }
     static void pratice(Node root){
              Stack<Node> stack = new Stack<Node>();
              Node curr = root;
@@ -195,14 +171,14 @@ static void RecursivePostOrderTreeTraveler(Node root){
     
 
 
-    static boolean RecursiveNodeFinder(Node root, String Name){
+    static boolean NodeFinder(Node root, String Name){
          
 
       if(root == null) return false;
       if(root.Name.equals(Name)) return true;
       
 
-      return RecursiveNodeFinder(root.Left, Name) || RecursiveNodeFinder(root.Right, Name);
+      return NodeFinder(root.Left, Name) || NodeFinder(root.Right, Name);
 
 
 
@@ -231,4 +207,9 @@ static void RecursivePostOrderTreeTraveler(Node root){
 
 
 
+
 }
+
+
+
+
