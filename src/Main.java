@@ -26,7 +26,7 @@ public class Main {
         b.Left = d;
 
        
-       RecursivePostOrderTreeTraveler(a);
+       pratice(a);
 
 
 
@@ -41,6 +41,31 @@ public class Main {
 
         */
        
+    }
+    static void pratice(Node root){
+             Stack<Node> stack = new Stack<Node>();
+             Node curr = root;
+               
+                
+
+             while( curr != null || !stack.isEmpty()){
+                         while(curr != null){
+
+                                 stack.push(curr);
+                                 System.out.println(curr.Name);
+                                curr = curr.Left;
+                                  
+                                 
+                                  
+                                  
+                         }
+                         curr = stack.pop();
+                        
+                         curr = curr.Right;
+                         
+             }
+             
+
     }
 static void RecursivePostOrderTreeTraveler(Node root){
              Node curr = root;
@@ -75,8 +100,8 @@ static void RecursivePostOrderTreeTraveler(Node root){
                 Node temp = stack.pop();
                 stack1.push(temp);
 
-                if ( temp.Right != null) stack.push(temp.Right);
                 if ( temp.Left != null) stack.push(temp.Left);
+                if ( temp.Right != null) stack.push(temp.Right);
                   
 
               }
